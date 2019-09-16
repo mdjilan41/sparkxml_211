@@ -1,0 +1,11 @@
+Executable code for xml processing:
+
+spark-shell --jars /home/datalake-scm-oozie-itg/spark-xml_2.11-0.6.0.jar
+import com.databricks.spark.xml.XmlReader
+
+val df = spark.read
+      .format("xml")
+      .option("rowTag","person")
+      .load("mahj/friends.xml")
+df.show()
+df.printSchema
